@@ -4,3 +4,8 @@ src/AccountGroup/loginlogout/__pycache__/test_.cpython-311-pytest-9.0.2.pyc
 src/AccountGroup/loginlogout/__pycache__/test_a.cpython-311-pytest-9.0.2.pyc
 src/AccountGroup/loginlogout/__pycache__/test.cpython-311-pytest-9.0.2.pyc
 tests/__pycache__/conftest.cpython-311-pytest-9.0.2.pyc
+src/__pycache__/*
+src/ChatHistory/__pycache__/*
+src/pages/__pycache__/*
+tests/__pycache__/*
+venv/Lib/site-packages/_pytest/__pycache__/*
