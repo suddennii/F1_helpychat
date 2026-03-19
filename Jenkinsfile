@@ -14,18 +14,6 @@ pipeline {
             }
         }
 
-        stage('Install Python') {
-            steps {
-                sh '''
-                    echo "Python 설치 시작"
-                    apt-get update
-                    apt-get install -y python3 python3-pip python3-venv
-                    python3 --version
-                    pip3 --version
-                '''
-            }
-        }
-
         stage('Python Version Check') {
             steps {
                 sh "$PYTHON_CMD --version"
