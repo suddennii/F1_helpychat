@@ -38,7 +38,6 @@ class K12Note:
     ADD_INPUT = (By.XPATH, "//textarea[@name='teacher_comment']") # 추가 입력
 
     # ===== actions
-    '''공통 사용'''
     
     def click_tool_tab(self): # 도구 탭 선택
         self.wait.until(EC.element_to_be_clickable(self.TOOL_TAB)).click()
@@ -51,7 +50,6 @@ class K12Note:
 
     def click_BG_tab(self): # 행동특성 및 종합의견 탭 선택
         self.wait.until(EC.element_to_be_clickable(self.BG_TAB)).click()
-
 
     def click_sch_lv(self): # 학교급 필드 클릭
         self.wait.until(EC.element_to_be_clickable(self.SCHOOL_LV)).click()

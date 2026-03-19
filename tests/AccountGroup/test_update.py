@@ -15,7 +15,7 @@ from pathlib import Path
 logger = get_logger(__file__)
 # === logger 설정 끝 ===
 
-base_dir = os.path.dirname(__file__)  # 현재 test_join.py 위치
+base_dir = os.path.dirname(__file__)
 json_path = Path(__file__).resolve().parents[2] / "data" / "update_data.json"
 with open(json_path, "r", encoding="utf-8") as f:
     update_data = json.load(f)

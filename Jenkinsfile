@@ -5,21 +5,11 @@ pipeline {
         // 반드시 우리가 설치 확인한 'python3.11'로 설정
         PYTHON_CMD = 'python3.11'
     }
-
     stages {
         stage('Checkout') {
             steps {
-                echo '📥 GitLab 저장소 가져오기'
+                echo 'GitLab 저장소 가져오기'
                 checkout scm
-            }
-        }
-        stage('Prepare') {
-            steps {
-                echo '🧹 이전 스크린샷 및 리포트 삭제 중...'
-                // screenshots 폴더가 있으면 지우고, 다시 빈 폴더를 만듭니다.
-                sh 'rm -rf screenshots && mkdir -p screenshots'
-                // 이전 xml 리포트도 지웁니다.
-                sh 'rm -f pytest-report.xml'
             }
         }
 
@@ -29,10 +19,9 @@ pipeline {
                 sh "$PYTHON_CMD --version"
             }
         }
-
         stage('Install Dependencies & Test') {
             steps {
-                echo '📦 가상환경 생성 및 의존성 설치'
+                echo '가상환경 생성 및 의존성 설치'
                 sh """
                 set -e
                 
@@ -55,13 +44,11 @@ pipeline {
             }
         }
     }
-
     post {
         always {
-            echo '📌 테스트 리포트 및 스크린샷 보관'
+            echo '테스트 리포트 및 스크린샷 보관'
             // 1. 테스트 결과 리포트 보관
             junit allowEmptyResults: true, testResults: 'pytest-report.xml'
-            
             // 2. 실패 시 찍힌 스크린샷 파일을 젠킨스 화면에 표시하도록 보관
             archiveArtifacts artifacts: 'screenshots/*.png', allowEmptyArchive: true
         }
