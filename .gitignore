@@ -17,3 +17,6 @@ downloads/
 
 **/logs/**
 
+.json
+
+.txt
